@@ -1,0 +1,22 @@
+SubProceso MostrarTabla ( num )
+    Definir i, prod Como Entero
+    Escribir "--- Tabla del ", num, " ---"
+    Para i <- 1 Hasta 10 Hacer
+        prod <- num * i
+        Escribir num, " x ", i, " = ", prod
+    FinPara
+    Escribir "---------------------"
+FinSubProceso
+
+Algoritmo Principal_Tablas
+    Definir n Como Entero
+    Definir sn Como Caracter
+	Repetir
+	Escribir "Ingrese un número para ver su tabla:"
+    Leer n
+    // Llamamos al procedimiento para que ejecute la acción
+    MostrarTabla(n)
+	Escribir "Si desea probar otro número dijite s, n para salir" Sin Saltar
+	Leer sn
+Hasta Que  (sn = 'n' o sn = 'N')
+FinAlgoritmo
