@@ -1,0 +1,77 @@
+// ---------------------------------------------------------
+// SUBPROCESO 1: Muestra el menú en pantalla (Solo interfaz)
+// ---------------------------------------------------------
+SubProceso MostrarMenu
+    Limpiar Pantalla;
+    Escribir "==================================="
+    Escribir "      SISTEMA DE CÁLCULO           "
+    Escribir "==================================="
+    Escribir "1. Realizar una Multiplicación"
+    Escribir "2. Calcular Promedio de 3 notas"
+    Escribir "3. Salir"
+    Escribir "==================================="
+    Escribir "Elija una opción > "
+FinSubProceso
+
+// ---------------------------------------------------------
+// SUBPROCESO 2: Realiza la multiplicación (Pide datos y muestra resultado)
+// ---------------------------------------------------------
+SubProceso EjecutarMultiplicacion
+    Definir n1, n2, resultado Como Real
+    Escribir ">> Ha elegido Multiplicación."
+    Escribir "Ingrese el primer número:"
+    Leer n1
+    Escribir "Ingrese el segundo número:"
+    Leer n2
+    resultado <- n1 * n2
+    Escribir "El resultado de ", n1, " x ", n2, " es: ", resultado
+FinSubProceso
+
+// ---------------------------------------------------------
+// SUBPROCESO 3: Realiza el promedio (Pide datos y muestra resultado)
+// ---------------------------------------------------------
+SubProceso EjecutarPromedio
+    Definir nota1, nota2, nota3, prom Como Real
+    Escribir ">> Ha elegido Promedio."
+    Escribir "Ingrese la nota 1:"
+    Leer nota1
+    Escribir "Ingrese la nota 2:"
+    Leer nota2
+    Escribir "Ingrese la nota 3:"
+    Leer nota3
+    prom <- (nota1 + nota2 + nota3) / 3
+    Escribir "El promedio de las notas es: ", prom
+    
+    // Un detalle extra: Validar si aprobó
+    Si prom >= 6 Entonces // Asumiendo que 6 es la base
+        Escribir "Estado: APROBADO"
+    SiNo
+        Escribir "Estado: REPROBADO"
+    FinSi
+FinSubProceso
+
+// ---------------------------------------------------------
+// ALGORITMO PRINCIPAL
+// ---------------------------------------------------------
+Algoritmo Principal_Ejercicio5_Mejorado
+    Definir opcion Como Entero
+    Repetir
+        // 1. Llamamos al subproceso que DIBUJA el menú
+        MostrarMenu
+        Leer opcion
+        // 2. El Switch decide qué OTRO subproceso llamar
+        Segun opcion Hacer
+            1:
+                EjecutarMultiplicacion; // Llama a la lógica de multiplicar
+            2:
+                EjecutarPromedio;       // Llama a la lógica de promediar
+            3:
+                Escribir "Saliendo del sistema..."
+            De Otro Modo:
+                Escribir "Opción no válida, intente de nuevo."
+        FinSegun
+        Escribir ""
+        Escribir "Presione Enter para continuar..."
+        Esperar Tecla
+    Hasta Que opcion = 3
+FinAlgoritmo
