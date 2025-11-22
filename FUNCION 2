@@ -1,0 +1,14 @@
+Funcion area <- CalcularArea ( radio )
+    Definir area Como Real
+    // Fórmula: PI * radio al cuadrado
+    area <- PI * (radio * radio)
+FinFuncion
+
+Algoritmo Principal_AreaCirculo
+    Definir r, resultado Como Real
+    Escribir "Ingrese el radio del círculo:"
+    Leer r
+    // Llamamos a la función y guardamos lo que devuelve en 'resultado'
+    resultado <- CalcularArea(r)
+    Escribir "El área del círculo es: ", resultado
+FinAlgoritmo
