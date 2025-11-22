@@ -1,0 +1,38 @@
+// ---------------------------------------------------------
+// PROCEDIMIENTO: Dibuja un rectángulo basado en medidas dadas
+// ---------------------------------------------------------
+SubProceso DibujarRectangulo ( base, altura )
+    Definir fila, columna Como Entero
+    Escribir "--- Generando figura de ", base, " x ", altura, " ---"
+    // Bucle externo: Controla las filas (hacia abajo)
+    Para fila <- 1 Hasta altura Hacer
+        // Bucle interno: Controla las columnas (hacia la derecha)
+        Para columna <- 1 Hasta base Hacer
+            // 'Sin Saltar' mantiene el cursor en la misma línea
+            Escribir "* " Sin Saltar;
+        FinPara
+        // Al terminar de dibujar una fila, hacemos un salto de línea normal
+        Escribir ""
+    FinPara
+    Escribir "---------------------------------------"
+FinSubProceso
+
+// ---------------------------------------------------------
+// ALGORITMO PRINCIPAL
+// ---------------------------------------------------------
+Algoritmo Principal_Figuras
+    Definir b, h Como Entero
+	Definir sn Como Caracter
+Repetir
+		Escribir "Vamos a dibujar un rectángulo."
+    Escribir "Ingrese el ancho (base):"
+    Leer b
+    Escribir "Ingrese el alto (altura):"
+    Leer h
+    // Llamamos al procedimiento enviando los datos que ingresó el usuario
+    DibujarRectangulo(b, h)
+    Escribir "¡Dibujo completado!"
+	Escribir "Desea continuar con otro, dijite s, n para salir" Sin Saltar
+	Leer sn
+Hasta Que (sn = 'n' o sn = 'N')
+FinAlgoritmo
