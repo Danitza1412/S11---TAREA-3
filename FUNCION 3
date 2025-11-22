@@ -1,0 +1,27 @@
+Funcion es_par <- VerificarParidad ( numero )
+    Definir es_par Como Logico
+    Si numero MOD 2 == 0 Entonces
+		es_par <- Verdadero
+	SiNo
+		es_par <- Falso
+	FinSi
+FinFuncion
+
+Algoritmo Principal_Paridad
+    Definir num Como Entero
+    Definir respuesta Como Logico
+	Definir sn Como Caracter
+Repetir
+	Escribir "Ingrese un número entero:"
+    Leer num;
+    // La función devuelve Verdadero o Falso
+    respuesta <- VerificarParidad(num);
+    Si respuesta Entonces
+        Escribir "El número ", num, " es PAR."
+    SiNo
+        Escribir "El número ", num, " es IMPAR."
+    FinSi
+	Escribir "Si desea probar otro número dijite s, n para salir" Sin Saltar
+	Leer sn
+Hasta Que  (sn = 'n' o sn = 'N')
+FinAlgoritmo
